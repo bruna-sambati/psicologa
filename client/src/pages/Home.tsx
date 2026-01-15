@@ -157,7 +157,7 @@ export default function Home() {
       <section
         className="relative min-h-[calc(100vh-64px)] md:min-h-screen flex items-start md:items-center justify-center overflow-hidden pt-6 md:pt-0"
         style={{
-          backgroundImage: "url('/images/hero-bg.jpg')",
+          backgroundImage: `url('${import.meta.env.BASE_URL}images/hero-bg.jpg')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -172,7 +172,7 @@ export default function Home() {
                 <div className="absolute inset-0 bg-accent/20 blur-xl rounded-full" />
                 <div className="relative w-full h-full rounded-full overflow-hidden shadow-lg border-2 border-background">
                   <img
-                    src="/images/bruna-profile.jpg"
+                    src={`${import.meta.env.BASE_URL}images/bruna-profile.jpg`}
                     alt="Bruna Sambati - Psicóloga"
                     className="w-full h-full object-cover"
                   />
@@ -319,7 +319,7 @@ export default function Home() {
                 <div className="absolute inset-0 bg-accent/20 blur-3xl rounded-full" />
                 <div className="relative w-full aspect-square rounded-2xl overflow-hidden shadow-2xl border-4 border-background">
                   <img
-                    src="/images/bruna-profile.jpg"
+                    src={`${import.meta.env.BASE_URL}images/bruna-profile.jpg`}
                     alt="Bruna Sambati - Psicóloga"
                     className="w-full h-full object-cover"
                   />
@@ -352,7 +352,7 @@ export default function Home() {
         id="sobre"
         className="section-spacing relative"
         style={{
-          backgroundImage: "url('/images/about-section-bg.jpg')",
+          backgroundImage: `url('${import.meta.env.BASE_URL}images/about-section-bg.jpg')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -679,7 +679,7 @@ export default function Home() {
         id="agendar"
         className="section-spacing relative"
         style={{
-          backgroundImage: "url('/images/cta-section-bg.jpg')",
+          backgroundImage: `url('${import.meta.env.BASE_URL}images/cta-section-bg.jpg')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
