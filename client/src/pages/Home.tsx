@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { ChevronDown, Phone, Mail, MapPin, Heart, Lightbulb, Users, Zap, Star, Shield, Clock, Award } from "lucide-react";
 import { useState } from "react";
+import CalendlyWidget from "@/components/CalendlyWidget";
 
 /**
  * Landing Page - Bruna Sambati
@@ -686,70 +687,65 @@ export default function Home() {
       >
         <div className="absolute inset-0 bg-gradient-to-br from-accent/20 via-background/80 to-background/90" />
         <div className="container relative z-10">
-          <div className="max-w-3xl mx-auto">
-            <Card className="p-12 text-center space-y-8 border-2 border-accent/30 bg-card/95 backdrop-blur-md shadow-2xl">
-              <div>
-                <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-accent/10 mb-6 animate-pulse">
-                  <Heart className="w-10 h-10 text-accent" />
-                </div>
-                <h2 className="text-accent mb-4">
-                  Pronto para dar o primeiro passo?
-                </h2>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  Estou aqui para acolhê-lo(a) e ajudá-lo(a) nessa jornada de
-                  autoconhecimento e transformação. Agende sua primeira sessão agora
-                  mesmo.
-                </p>
+          <div className="max-w-4xl mx-auto">
+            {/* Header */}
+            <div className="text-center mb-8 md:mb-12">
+              <div className="inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-full bg-accent/10 mb-5 md:mb-6 animate-pulse">
+                <Heart className="w-8 h-8 md:w-10 md:h-10 text-accent" />
               </div>
+              <h2 className="text-accent mb-3 md:mb-4 text-2xl md:text-3xl lg:text-4xl">
+                Agende sua primeira sessão
+              </h2>
+              <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto px-4">
+                Escolha o melhor horário para você. Atendo online e presencialmente em Rolândia, Paraná.
+              </p>
+            </div>
 
-              {/* Value Props */}
-              <div className="grid sm:grid-cols-3 gap-4 py-6">
-                <div className="flex flex-col items-center gap-2 p-4 rounded-lg bg-background/50">
-                  <Shield className="w-8 h-8 text-accent" />
-                  <p className="text-sm font-medium text-foreground">100% Sigiloso</p>
-                  <p className="text-xs text-muted-foreground text-center">Privacidade garantida</p>
-                </div>
-                <div className="flex flex-col items-center gap-2 p-4 rounded-lg bg-background/50">
-                  <Clock className="w-8 h-8 text-accent" />
-                  <p className="text-sm font-medium text-foreground">Horários Flexíveis</p>
-                  <p className="text-xs text-muted-foreground text-center">Online ou presencial</p>
-                </div>
-                <div className="flex flex-col items-center gap-2 p-4 rounded-lg bg-background/50">
-                  <Award className="w-8 h-8 text-accent" />
-                  <p className="text-sm font-medium text-foreground">CRP 08/33527</p>
-                  <p className="text-xs text-muted-foreground text-center">Profissional registrada</p>
-                </div>
-              </div>
+            {/* Value Props */}
+            <div className="grid sm:grid-cols-3 gap-4 mb-8 md:mb-10">
+              <Card className="flex flex-col items-center gap-2 p-4 md:p-5 bg-card/95 backdrop-blur-md border-accent/20 hover:border-accent/40 transition-colors">
+                <Shield className="w-7 h-7 md:w-8 md:h-8 text-accent" />
+                <p className="text-sm font-medium text-foreground">100% Sigiloso</p>
+                <p className="text-xs text-muted-foreground text-center">Privacidade garantida</p>
+              </Card>
+              <Card className="flex flex-col items-center gap-2 p-4 md:p-5 bg-card/95 backdrop-blur-md border-accent/20 hover:border-accent/40 transition-colors">
+                <Clock className="w-7 h-7 md:w-8 md:h-8 text-accent" />
+                <p className="text-sm font-medium text-foreground">Horários Flexíveis</p>
+                <p className="text-xs text-muted-foreground text-center">Online ou presencial</p>
+              </Card>
+              <Card className="flex flex-col items-center gap-2 p-4 md:p-5 bg-card/95 backdrop-blur-md border-accent/20 hover:border-accent/40 transition-colors">
+                <Award className="w-7 h-7 md:w-8 md:h-8 text-accent" />
+                <p className="text-sm font-medium text-foreground">CRP 08/33527</p>
+                <p className="text-xs text-muted-foreground text-center">Profissional registrada</p>
+              </Card>
+            </div>
 
-              <div className="space-y-4">
-                <Button
-                  className="btn-primary text-lg h-auto py-5 px-12 w-full sm:w-auto shadow-2xl shadow-accent/30 hover:shadow-accent/50 transition-all transform hover:scale-105"
-                  onClick={handleSchedule}
+            {/* Calendly Widget */}
+            <Card className="p-4 md:p-6 lg:p-8 border-2 border-accent/30 bg-card/95 backdrop-blur-md shadow-2xl">
+              <CalendlyWidget />
+            </Card>
+
+            {/* Alternative Contact Options */}
+            <Card className="mt-6 p-6 md:p-8 text-center bg-card/95 backdrop-blur-md border-accent/20">
+              <p className="text-sm md:text-base text-muted-foreground mb-4">
+                Prefere entrar em contato diretamente?
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a
+                  href="tel:+5543996616184"
+                  className="flex items-center gap-2 text-foreground hover:text-accent transition-colors font-medium text-sm md:text-base"
                 >
-                  <Phone className="w-5 h-5 mr-2" />
-                  Agendar sessão agora
-                </Button>
-
-                <p className="text-sm text-muted-foreground">
-                  Entre em contato para conhecer valores e disponibilidade
-                </p>
-
-                <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4 border-t border-border/50">
-                  <a
-                    href="tel:+5543996616184"
-                    className="flex items-center justify-center gap-2 text-muted-foreground hover:text-accent transition-colors font-medium"
-                  >
-                    <Phone className="w-4 h-4" />
-                    (43) 99661-6184
-                  </a>
-                  <a
-                    href="mailto:sambatibruna@gmail.com"
-                    className="flex items-center justify-center gap-2 text-muted-foreground hover:text-accent transition-colors font-medium"
-                  >
-                    <Mail className="w-4 h-4" />
-                    sambatibruna@gmail.com
-                  </a>
-                </div>
+                  <Phone className="w-4 h-4" />
+                  (43) 99661-6184
+                </a>
+                <div className="hidden sm:block w-px h-5 bg-border" />
+                <a
+                  href="mailto:sambatibruna@gmail.com"
+                  className="flex items-center gap-2 text-foreground hover:text-accent transition-colors font-medium text-sm md:text-base"
+                >
+                  <Mail className="w-4 h-4" />
+                  sambatibruna@gmail.com
+                </a>
               </div>
             </Card>
           </div>
